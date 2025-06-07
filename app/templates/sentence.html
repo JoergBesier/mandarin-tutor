@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>{{ hanzi }}</title>
+  </head>
+  <body>
+    <h2>{{ hanzi }}</h2>
+    <p><em>{{ pinyin }}</em></p>
+    <p>{{ english }}</p>
+
+    {% if audio %}
+      <audio controls src="{{ audio }}"></audio>
+    {% endif %}
+
+    <h3>Words</h3>
+    <ul>
+      {% for w in words %}
+        <li>{{ w.h }} · {{ w.p }} — {{ w.en }}</li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
