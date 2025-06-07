@@ -1,0 +1,25 @@
+# ── Python & Poetry ─────────────────────────────
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.py[cod]
+*.so
+.venv/
+poetry.lock      # keep if you want reproducible builds; remove this line to add it
+# If using pipx / virtualenv outside project, ignore generic env dirs
+env/
+venv/
+
+# ── VS Code ─────────────────────────────────────
+.vscode/
+
+# ── Environment / secrets ───────────────────────
+.env
+.env.*
+credentials.json          # Google service-account key
+
+# ── OS & editor noise ───────────────────────────
+.DS_Store
+Thumbs.db
+.idea/
