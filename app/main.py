@@ -4,6 +4,8 @@ from jinja2 import Environment, FileSystemLoader
 from .dependencies import get_sheet
 import json
 
+from app import llm
+
 templates = Environment(loader=FileSystemLoader("app/templates"))
 app = FastAPI(title="Mandarin Tutor API")
 
@@ -34,3 +36,9 @@ def api_sentence(row_id: int, sheet=Depends(get_sheet)):
         raise HTTPException(404, "row too short")
     keys = ["hanzi", "audio", "pinyin", "english", "wordList"]
     return dict(zip(keys, vals))
+
+
+
+@app.post("/api/pinyin")
+def api_pinyin(body: dict):
+    return {"pinyin": llm.pinyin(body["text"])}
